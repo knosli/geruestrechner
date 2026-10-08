@@ -447,7 +447,7 @@ function layout(s){
           put('rahmen',-45,y,H*k,'turm',k);
           put('kupplungU',0,y,H*k,'turm',k); put('kupplungO',0,y,H*k,'turm',k);
         }
-        put('ansetz',-45,y,0,'ansetz',0);
+        put('ansetz',-45,y,0,'ansetzT',0);
       });
       put('treppeK',0,y0,0,'treppe',0); put('tgelK',0,y0,0,'treppe',0);
       for(j=0;j<L-1;j++){put('treppe',0,y0,H*j,'treppe',j+1);put('tgel',0,y0,H*j,'treppe',j+1);}
@@ -487,7 +487,7 @@ function layout(s){
 }
 
 /* ---------- Bauanleitung ---------- */
-var PH=['ansetz','belag','konsole','rahmen','ecke','turm','treppe','gel','strebe','bord','innen','stirn','austritt'];
+var PH=['ansetz','belag','konsole','rahmen','ecke','gel','strebe','bord','innen','ansetzT','turm','treppe','stirn','austritt'];
 var STEP=-1, STEPS=[], STEPIDX={};
 function bomId(id){
   if(/^kupE|^kupplung[UO]/.test(id)) return 'kupplung';
@@ -516,6 +516,7 @@ function stepText(st){
     case 'konsole':return ['Innenkonsole einhängen, 30-cm-Belag einlegen','Die Innenkonsole an die Rahmen hängen und den schmalen Belag darauf legen.'+n];
     case 'rahmen':return ['Rahmen aufstecken',k===0?'Auf jeden Ansetzrahmen einen Rahmen stecken.'+n:'Auf die Rahmen darunter jeweils einen Rahmen stecken.'+n];
     case 'ecke':return ['Ecke verbinden','Die beiden Rahmen an der Ecke mit 2 Kupplungen verbinden, eine oben und eine unten.'];
+    case 'ansetzT':return ['Treppenturm: Ansetzrahmen stellen','Erst jetzt, wenn das Grundgerüst mit Geländer steht (Stabilität), die 2 Ansetzrahmen des Treppenturms vor dem Feld aufstellen.'];
     case 'turm':return ['Treppenturm: Rahmen aufstecken und kuppeln','Den Treppenrahmen neben den Gerüstrahmen stellen und mit 2 Kupplungen verbinden, eine oben und eine unten.'];
     case 'treppe':return k===0?['Kurze Treppe mit Geländer einhängen','Die kurze Treppe und das kurze Treppengeländer am Antritt einhängen.']:['Treppe mit Geländer einhängen','Die lange Treppe und das Treppengeländer in den Treppenturm einhängen.'];
     case 'gel':return ['Geländer einhängen','Die Geländer in die Rahmen einhängen.'+n];
